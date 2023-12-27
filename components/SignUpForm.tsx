@@ -1,7 +1,7 @@
 'use client'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import useAuth from '@/hooks/useAuth'
-
+import Loader from './Loader'
 interface Inputs {
     email:string,
     password:string
@@ -50,7 +50,13 @@ function SignUpForm({setLogin}:SignUpProps) {
             </label> 
 
         </div>
-            <button className='w-full rounded bg-[#240b36] py-3 font-semibold text-white'  onClick={()=>{setLogin(false)}}>Sign Up</button>
+            <button className='w-full rounded bg-[#240b36] py-3 font-semibold text-white'  onClick={()=>{setLogin(false)}}>
+            {loading ? (
+              <Loader color="dark:fill-gray-300" />
+            ) : (
+              'Sign Up'
+            )}
+            </button>
 
             <div className='text-[grey]'>
                <span>Already registered? </span> 

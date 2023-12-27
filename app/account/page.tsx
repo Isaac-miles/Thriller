@@ -10,11 +10,6 @@ import useAuth from '@/hooks/useAuth'
 import useSubscription from '@/hooks/useSubscription'
 import moment from  "moment"
 
-export const metadata: Metadata = {
-  title: 'Thriller',
-
-}
-
 function Account() {
   const [products, setProducts] = useState<ProductType>([])
   const { user,logOut } = useAuth()
@@ -41,6 +36,7 @@ function Account() {
   return (
     <div>
       <Head>
+        <title>Thriller</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 

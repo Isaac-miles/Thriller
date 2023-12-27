@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import useAuth from '@/hooks/useAuth'
 import Loader from './Loader'
@@ -11,9 +12,8 @@ interface Inputs {
     setLogin: React.Dispatch<React.SetStateAction<boolean>>
 }
 function SignUpForm({setLogin}:SignUpProps) {
-    const {loading,signUp} = useAuth()
-
-
+    const {signUp} = useAuth()
+    const [loader, setLoader] = useState(false)
     const {
         register,
         handleSubmit,
@@ -22,8 +22,10 @@ function SignUpForm({setLogin}:SignUpProps) {
       } = useForm<Inputs>()
 
       const onSubmit: SubmitHandler<Inputs> =async ({email,password}:Inputs) => {
+            setLoader(true)
             if(email.trim().length > 0){
                 await signUp(email,password)
+                setLoader(false)
             }
       }
 
@@ -51,10 +53,11 @@ function SignUpForm({setLogin}:SignUpProps) {
 
         </div>
             <button className='w-full rounded bg-[#240b36] py-3 font-semibold text-white'  onClick={()=>{setLogin(false)}}>
-            {loading ? (
+            {loader ? (
               <Loader color="dark:fill-gray-300" />
             ) : (
               'Sign Up'
+              
             )}
             </button>
 

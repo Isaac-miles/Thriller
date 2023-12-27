@@ -1,7 +1,7 @@
-import React from 'react'
+import React ,{useState} from 'react'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import useAuth from '@/hooks/useAuth'
-
+import Loader from './Loader'
 interface Inputs {
     email:string,
     password:string
@@ -11,6 +11,7 @@ type SignInProps = {
 }
 function SignInForm({setLogin}:SignInProps) {
     const {loading,signIn,signUp,user} = useAuth()
+    const [loader, setLoader] = useState(false)
 
     const {
         register,
@@ -20,8 +21,10 @@ function SignInForm({setLogin}:SignInProps) {
       } = useForm<Inputs>()
 
       const onSubmit: SubmitHandler<Inputs> = async ({email,password}:Inputs) => {
+        setLoader(true)
         if(email.trim().length > 0){
             await signIn(email,password)
+            setLoader(true)
         }
       }
 
@@ -48,7 +51,14 @@ function SignInForm({setLogin}:SignInProps) {
         </label>
 
     </div>
-        <button className='w-full rounded bg-[#c31432] py-3 font-semibold' onClick={()=>setLogin(true)}>Sign In</button>
+        <button className='w-full rounded bg-[#c31432] py-3 font-semibold' onClick={()=>setLogin(true)}>
+            {loader ? (
+              <Loader color="dark:fill-gray-300" />
+            ) : (
+              'Sign Up'
+              
+            )}
+            </button>
 
         <div className='text-[grey]'>
            <span>New to Thriller? </span> 

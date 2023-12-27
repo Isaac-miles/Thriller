@@ -3,15 +3,13 @@
 import React, { useState } from 'react'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import useAuth from '@/hooks/useAuth'
-// import { useSelector } from 'react-redux'
-import SignInForm from './SingInForm'
 
 interface Inputs {
     email:string,
     password:string
 }
 
-function LoginForm() {
+function SignUpForm() {
     const {loading,signIn,signUp,user} = useAuth()
     const [login, setLogin] = useState(false)
 
@@ -64,5 +62,4 @@ function LoginForm() {
   )
 }
 
-export default LoginForm
-
+export default SignUpForm

@@ -1,6 +1,4 @@
 'use client'
-
-import React, { useState } from 'react'
 import {useForm,SubmitHandler} from 'react-hook-form'
 import useAuth from '@/hooks/useAuth'
 
@@ -14,7 +12,7 @@ interface Inputs {
 }
 function SignUpForm({setLogin}:SignUpProps) {
     const {loading,signUp} = useAuth()
-    // const [login, setLogin] = useState(false)
+
 
     const {
         register,

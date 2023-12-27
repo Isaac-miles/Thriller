@@ -18,12 +18,9 @@ function SignInForm() {
         formState: { errors },
       } = useForm<Inputs>()
 
-      const onSubmit: SubmitHandler<Inputs> =async ({email,password}:Inputs) => {
-        if(login){
+      const onSubmit: SubmitHandler<Inputs> = async ({email,password}:Inputs) => {
+        if(email.trim().length > 0){
             await signIn(email,password)
-        }else {
-            await signUp(email,password)
-         
         }
       }
 

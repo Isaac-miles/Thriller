@@ -9,9 +9,12 @@ interface Inputs {
     password:string
 }
 
-function SignUpForm() {
+  type SignUpProps = {
+    setLogin: React.Dispatch<React.SetStateAction<boolean>>
+}
+function SignUpForm({setLogin}:SignUpProps) {
     const {loading,signUp} = useAuth()
-    const [login, setLogin] = useState(false)
+    // const [login, setLogin] = useState(false)
 
     const {
         register,
@@ -46,14 +49,14 @@ function SignUpForm() {
                 Your password must contain between 4 and 60 characters.
               </p>
             )}
-            </label>
+            </label> 
 
         </div>
-            <button className='w-full rounded bg-[#c31432] py-3 font-semibold' onClick={()=>setLogin(true)}>Sign Up</button>
+            <button className='w-full rounded bg-[#240b36] py-3 font-semibold text-white'  onClick={()=>{setLogin(false)}}>Sign Up</button>
 
             <div className='text-[grey]'>
                <span>Already registered? </span> 
-                <button type="submit" className='text-white hover:underline' onClick={()=>setLogin(false)}>login</button>
+                <button type="submit" className='text-white hover:underline' onClick={()=>setLogin(true)}>login</button>
             </div>
     </form>
   )

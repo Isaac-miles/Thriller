@@ -6,10 +6,11 @@ interface Inputs {
     email:string,
     password:string
 }
-
-function SignInForm() {
+type SignInProps = {
+    setLogin: React.Dispatch<React.SetStateAction<boolean>>
+}
+function SignInForm({setLogin}:SignInProps) {
     const {loading,signIn,signUp,user} = useAuth()
-    const [login, setLogin] = useState(false)
 
     const {
         register,

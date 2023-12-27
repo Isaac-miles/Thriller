@@ -6,11 +6,11 @@ import SignInForm from './SingInForm'
 
 function LoginForm() {
     // const {loading,signIn,signUp,user} = useAuth()
-    const [login, setLogin] = useState(false)
+    const [login, setLogin] = useState(true)
 
   return (
     <div>
-     { login ? (<SignInForm/>) : (<SignUpForm/>)}
+     { login ? (<SignInForm setLogin={setLogin}/>) : (<SignUpForm setLogin={setLogin}/>)}
     </div>
   ) 
   

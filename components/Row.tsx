@@ -37,7 +37,7 @@ const Row = ({title,movies} : RowProps) => {
             <ChevronLeftIcon  className={`rowIcons left-2 ${!isMoved && 'hidden' }`}onClick={()=>handleClick("left")}/>
 
             <div ref={rowRef} className="flex scrollbar-hide items-center space-x-0.5 overflow-x-scroll md:space-x-2.5  md:p-2">
-                    {movies.map((movie)=>(
+                    {movies?.map((movie)=>(
                          <Thumbnail key={movie.id} movie={movie}/> 
                       
                     ))}

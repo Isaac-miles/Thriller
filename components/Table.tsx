@@ -26,7 +26,7 @@ function Table({products, selectedPlan}:TableProps) {
             </tr>
         <tr className="tableRow">
           <td className="tableDataTitle">Resolution</td>
-          {products.map((product) => (
+          {products?.map((product) => (
             <td
             className={`tableDataFeature ${selectedPlan.priceId=== product.priceId? "text-[#c31432]" :"text-[gray]"}`}
               key={product.priceId}
@@ -39,7 +39,7 @@ function Table({products, selectedPlan}:TableProps) {
           <td className="tableDataTitle">
             Watch on your TV, computer, mobile phone and tablet
           </td>
-          {products.map((product) => (
+          {products?.map((product) => (
             <td
             className={`tableDataFeature ${selectedPlan.priceId=== product.priceId? "text-[#c31432]" :"text-[gray]"}`}
               key={product.priceId}

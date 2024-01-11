@@ -62,7 +62,7 @@ function SignInForm({setLogin}:SignInProps) {
 
         <div className='text-[grey]'>
            <span>New to Thriller? </span> 
-            <button type="submit" className='text-white hover:underline' onClick={()=>setLogin(false)}>Sign up</button>
+            <button type="submit" className='text-white hover:underline' onClick={()=>setLogin(false)}>Sign in</button>
         </div>
 </form>
   )
